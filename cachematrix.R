@@ -1,6 +1,28 @@
 ## These functions provide the ability to cache the inverse of a 
 ## square invertible matrix for efficiency for future retrieval.
 
+## Sample use:
+## > m <- makeCacheMatrix()
+## > m$set(matrix(c(1,0,5,2,1,6,3,5,0),3,3))
+##
+## First attempt requires solving (inverting) matrix and caching result
+##
+## > cacheSolve(m)
+## Cache unavailable. Inverting matrix and caching.
+## [,1] [,2] [,3]
+## [1,]   -6  3.6  1.4
+## [2,]    5 -3.0 -1.0
+## [3,]   -1  0.8  0.2
+##
+## Second attempt uses previously cached inverse
+##
+## > cacheSolve(m)
+## Using previously cached inverted matrix.
+## [,1] [,2] [,3]
+## [1,]   -6  3.6  1.4
+## [2,]    5 -3.0 -1.0
+## [3,]   -1  0.8  0.2
+
 ## makeCacheMatrix creates the list of functions to get or set 
 ## a cached version of the inverse of the supplied matrix
 
